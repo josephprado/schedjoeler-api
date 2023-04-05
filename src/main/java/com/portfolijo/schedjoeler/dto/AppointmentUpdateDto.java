@@ -1,7 +1,6 @@
 package com.portfolijo.schedjoeler.dto;
 
 import com.portfolijo.schedjoeler.domain.Appointment;
-import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -13,9 +12,7 @@ import java.util.UUID;
  */
 @Getter
 @Builder
-public class AppointmentUpdateDto {
-    @NotNull
-    private UUID uuid;
+public class AppointmentUpdateDto extends AppointmentDtoBase {
     private LocalDateTime dateTime;
     private String location;
     private UUID provider;

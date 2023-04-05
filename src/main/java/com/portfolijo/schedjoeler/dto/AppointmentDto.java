@@ -13,7 +13,7 @@ import java.util.UUID;
  */
 @Getter
 @Builder
-public class AppointmentDto {
+public class AppointmentDto extends AppointmentDtoBase {
     @NotNull
     private UUID uuid;
     @NotNull

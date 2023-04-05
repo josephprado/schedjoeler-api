@@ -12,7 +12,7 @@ import java.util.UUID;
  */
 @Getter
 @Builder
-public class UserDto {
+public class UserDto extends UserDtoBase {
     @NotNull
     private UUID uuid;
     @NotBlank

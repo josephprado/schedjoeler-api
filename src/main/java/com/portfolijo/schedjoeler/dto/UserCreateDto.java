@@ -9,7 +9,7 @@ import lombok.Getter;
  */
 @Getter
 @Builder
-public class UserCreateDto {
+public class UserCreateDto extends UserDtoBase {
     @NotBlank
     private String firstName;
     @NotBlank

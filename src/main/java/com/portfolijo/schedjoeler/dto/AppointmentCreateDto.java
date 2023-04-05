@@ -12,7 +12,7 @@ import java.util.UUID;
  */
 @Getter
 @Builder
-public class AppointmentCreateDto {
+public class AppointmentCreateDto extends AppointmentDtoBase {
     @NotNull
     private LocalDateTime dateTime;
     private String location;
