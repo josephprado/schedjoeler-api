@@ -20,9 +20,9 @@ public class AppointmentDto {
     private LocalDateTime dateTime;
     private String location;
     @NotNull
-    private UUID provider;
+    private UserDto provider;
     @NotNull
-    private UUID client;
+    private UserDto client;
     @NotNull
     private Appointment.Status status;
     private String description;
