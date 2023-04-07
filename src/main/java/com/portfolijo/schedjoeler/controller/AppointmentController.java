@@ -6,6 +6,7 @@ import com.portfolijo.schedjoeler.dto.AppointmentDto;
 import com.portfolijo.schedjoeler.dto.AppointmentDtoBase;
 import com.portfolijo.schedjoeler.dto.AppointmentUpdateDto;
 import com.portfolijo.schedjoeler.service.AppointmentService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,13 +33,13 @@ public class AppointmentController extends Controller<AppointmentDtoBase> {
     }
 
     @PostMapping("")
-    public ResponseEntity<Response<AppointmentDto>> saveOne(@RequestBody AppointmentCreateDto dto) {
+    public ResponseEntity<Response<AppointmentDto>> saveOne(@Valid @RequestBody AppointmentCreateDto dto) {
         return null;
     }
 
     @PatchMapping("/{uuid}")
     public ResponseEntity<Response<AppointmentDto>> updateOne(@PathVariable(name = "uuid") UUID uuid,
-                                                              @RequestBody AppointmentUpdateDto dto) {
+                                                              @Valid @RequestBody AppointmentUpdateDto dto) {
         return null;
     }
 

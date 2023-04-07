@@ -3,10 +3,7 @@ package com.portfolijo.schedjoeler.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldNameConstants;
 
 import java.util.UUID;
@@ -39,10 +36,12 @@ public class User {
 
     @Column(name = "first_name", nullable = false)
     @NotBlank
+    @NonNull
     private String firstName;
 
     @Column(name = "last_name", nullable = false)
     @NotBlank
+    @NonNull
     private String lastName;
 
     @Column(name = "email")

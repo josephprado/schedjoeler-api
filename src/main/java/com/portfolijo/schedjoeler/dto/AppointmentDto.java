@@ -4,6 +4,7 @@ import com.portfolijo.schedjoeler.domain.Appointment;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NonNull;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -15,15 +16,26 @@ import java.util.UUID;
 @Builder
 public class AppointmentDto extends AppointmentDtoBase {
     @NotNull
+    @NonNull
     private UUID uuid;
+
     @NotNull
+    @NonNull
     private LocalDateTime dateTime;
-    private String location;
+
     @NotNull
+    @NonNull
     private UserDto provider;
+
     @NotNull
+    @NonNull
     private UserDto client;
+
     @NotNull
+    @NonNull
     private Appointment.Status status;
+
+    private String location;
+
     private String description;
 }

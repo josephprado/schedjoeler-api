@@ -6,6 +6,7 @@ import com.portfolijo.schedjoeler.dto.UserDto;
 import com.portfolijo.schedjoeler.dto.UserDtoBase;
 import com.portfolijo.schedjoeler.dto.UserUpdateDto;
 import com.portfolijo.schedjoeler.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,13 +36,13 @@ public class UserController extends Controller<UserDtoBase> {
     }
 
     @PostMapping("")
-    public ResponseEntity<Response<UserDto>> saveOne(@RequestBody UserCreateDto dto) {
+    public ResponseEntity<Response<UserDto>> saveOne(@Valid @RequestBody UserCreateDto dto) {
         return null;
     }
 
     @PatchMapping("/{uuid}")
     public ResponseEntity<Response<UserDto>> updateOne(@PathVariable(name = "uuid") UUID uuid,
-                                                       @RequestBody UserUpdateDto dto) {
+                                                       @Valid @RequestBody UserUpdateDto dto) {
         return null;
     }
 

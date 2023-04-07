@@ -46,10 +46,8 @@ public class Appointment {
 
     @Column(name = "date_time", nullable = false)
     @NotNull
+    @NonNull
     private LocalDateTime dateTime;
-
-    @Column(name = "location")
-    private String location;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(
@@ -59,6 +57,7 @@ public class Appointment {
             nullable = false
     )
     @NotNull
+    @NonNull
     private User provider;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
@@ -69,11 +68,16 @@ public class Appointment {
             nullable = false
     )
     @NotNull
+    @NonNull
     private User client;
 
     @Column(name = "status", nullable = false)
     @NotNull
+    @NonNull
     private Status status;
+
+    @Column(name = "location")
+    private String location;
 
     @Column(name = "description")
     private String description;

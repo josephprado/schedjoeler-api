@@ -14,9 +14,9 @@ import java.util.UUID;
 @Builder
 public class AppointmentUpdateDto extends AppointmentDtoBase {
     private LocalDateTime dateTime;
-    private String location;
     private UUID provider;
     private UUID client;
     private Appointment.Status status;
+    private String location;
     private String description;
 }

@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NonNull;
 
 import java.util.UUID;
 
@@ -14,11 +15,18 @@ import java.util.UUID;
 @Builder
 public class UserDto extends UserDtoBase {
     @NotNull
+    @NonNull
     private UUID uuid;
+
     @NotBlank
+    @NonNull
     private String firstName;
+
     @NotBlank
+    @NonNull
     private String lastName;
+
     private String email;
+
     private String phone;
 }
