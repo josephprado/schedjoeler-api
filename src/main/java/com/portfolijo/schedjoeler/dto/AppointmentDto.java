@@ -3,6 +3,7 @@ package com.portfolijo.schedjoeler.dto;
 import com.portfolijo.schedjoeler.domain.Appointment;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -13,6 +14,7 @@ import java.util.UUID;
  * Represents a scheduled appointment between a provider and client
  */
 @Getter
+@EqualsAndHashCode(callSuper = false)
 @Builder
 public class AppointmentDto extends AppointmentDtoBase {
     @NotNull
