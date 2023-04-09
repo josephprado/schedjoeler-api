@@ -64,7 +64,7 @@ class UserServiceTest {
                     .build();
             when(repo.findByUuid(uuid)).thenReturn(expected);
             User actual = svc.findOne(uuid);
-            assertEquals(actual, expected);
+            assertEquals(expected, actual);
         }
 
         @Test
@@ -113,7 +113,7 @@ class UserServiceTest {
                     .build();
             when(repo.save(expected)).thenReturn(expected);
             User actual = svc.saveOne(expected);
-            assertEquals(actual, expected);
+            assertEquals(expected, actual);
         }
     }
 

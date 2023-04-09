@@ -63,7 +63,7 @@ class UserConverterTest {
                     .build();
 
             UserDto actual = con.toDto(user);
-            assertEquals(actual, expected);
+            assertEquals(expected, actual);
         }
     }
 
@@ -91,10 +91,10 @@ class UserConverterTest {
             User actual = con.toUser(dto);
 
             assertNotNull(actual.getUuid());
-            assertEquals(actual.getFirstName(), expected.getFirstName());
-            assertEquals(actual.getLastName(), expected.getLastName());
-            assertEquals(actual.getEmail(), expected.getEmail());
-            assertEquals(actual.getPhone(), expected.getPhone());
+            assertEquals(expected.getFirstName(), actual.getFirstName());
+            assertEquals(expected.getLastName(), actual.getLastName());
+            assertEquals(expected.getEmail(), actual.getEmail());
+            assertEquals(expected.getPhone(), actual.getPhone());
         }
     }
 
@@ -117,7 +117,7 @@ class UserConverterTest {
             when(repo.findByUuid(uuid)).thenReturn(expected);
 
             User actual = con.toUser(uuid, dto);
-            assertEquals(actual, expected);
+            assertEquals(expected, actual);
         }
 
         static UUID uuid1 = UUID.randomUUID();
@@ -127,7 +127,7 @@ class UserConverterTest {
         void converts_existing_user(UserUpdateDto dto, User expected) {
             when(repo.findByUuid(uuid1)).thenReturn(expected);
             User actual = con.toUser(uuid1, dto);
-            assertEquals(actual, expected);
+            assertEquals(expected, actual);
         }
 
         static Stream<Arguments> g_converts_existing_user() {
