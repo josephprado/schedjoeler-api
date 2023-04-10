@@ -53,10 +53,10 @@ public class UserConverter {
     }
 
     /**
-     * Creates an updated version of the identified user based on the update user DTO
+     * Creates an updated version of the identified user based on the given user update DTO
      *
      * @param uuid A user uuid
-     * @param dto A user DTO
+     * @param dto A user update DTO
      * @return A user
      */
     public User toUser(UUID uuid, UserUpdateDto dto) {
