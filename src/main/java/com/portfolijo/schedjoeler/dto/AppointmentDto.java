@@ -2,10 +2,7 @@ package com.portfolijo.schedjoeler.dto;
 
 import com.portfolijo.schedjoeler.domain.Appointment;
 import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NonNull;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -15,6 +12,7 @@ import java.util.UUID;
  */
 @Getter
 @EqualsAndHashCode(callSuper = false)
+@ToString
 @Builder
 public class AppointmentDto extends AppointmentDtoBase {
     @NotNull
