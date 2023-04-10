@@ -126,8 +126,8 @@ class UserConverterTest {
 
         @ParameterizedTest
         @MethodSource("g_converts_existing_user")
-        void converts_existing_user(UserUpdateDto dto, User expected) {
-            when(repo.findByUuid(uuid1)).thenReturn(expected);
+        void converts_existing_user(UserUpdateDto dto, User existing, User expected) {
+            when(repo.findByUuid(uuid1)).thenReturn(existing);
             User actual = con.toUser(uuid1, dto);
             assertEquals(expected, actual);
         }
@@ -136,21 +136,27 @@ class UserConverterTest {
             return Stream.of(
                     Arguments.of(
                             UserUpdateDto.builder().build(),
+                            User.builder().uuid(uuid1).firstName("a").lastName("b").email("c").phone("d").build(),
                             User.builder().uuid(uuid1).firstName("a").lastName("b").email("c").phone("d").build()),
                     Arguments.of(
                             UserUpdateDto.builder().firstName("1").build(),
+                            User.builder().uuid(uuid1).firstName("a").lastName("b").email("c").phone("d").build(),
                             User.builder().uuid(uuid1).firstName("1").lastName("b").email("c").phone("d").build()),
                     Arguments.of(
                             UserUpdateDto.builder().lastName("1").build(),
+                            User.builder().uuid(uuid1).firstName("a").lastName("b").email("c").phone("d").build(),
                             User.builder().uuid(uuid1).firstName("a").lastName("1").email("c").phone("d").build()),
                     Arguments.of(
                             UserUpdateDto.builder().email("1").build(),
+                            User.builder().uuid(uuid1).firstName("a").lastName("b").email("c").phone("d").build(),
                             User.builder().uuid(uuid1).firstName("a").lastName("b").email("1").phone("d").build()),
                     Arguments.of(
                             UserUpdateDto.builder().phone("1").build(),
+                            User.builder().uuid(uuid1).firstName("a").lastName("b").email("c").phone("d").build(),
                             User.builder().uuid(uuid1).firstName("a").lastName("b").email("c").phone("1").build()),
                     Arguments.of(
                             UserUpdateDto.builder().firstName("1").lastName("2").email("3").phone("4").build(),
+                            User.builder().uuid(uuid1).firstName("a").lastName("b").email("c").phone("d").build(),
                             User.builder().uuid(uuid1).firstName("1").lastName("2").email("3").phone("4").build())
             );
         }
