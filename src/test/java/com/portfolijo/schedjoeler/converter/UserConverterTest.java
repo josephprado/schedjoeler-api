@@ -90,6 +90,8 @@ class UserConverterTest {
 
             User actual = con.toUser(dto);
 
+            // toUser(UserCreateDto) generates a random uuid at runtime, so cannot simply test
+            // assertEquals(expected, actual) since the uuids will differ
             assertNotNull(actual.getUuid());
             assertEquals(expected.getFirstName(), actual.getFirstName());
             assertEquals(expected.getLastName(), actual.getLastName());
