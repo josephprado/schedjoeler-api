@@ -26,7 +26,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ActiveProfiles("test")
@@ -97,7 +96,6 @@ class UserControllerTest {
             when(con.toDto(user)).thenReturn(expected);
 
             mvc.perform(get(BASE_URL+"/"+uuid))
-                    .andDo(print())
                     .andExpect(status().isOk());
         }
 
@@ -168,7 +166,6 @@ class UserControllerTest {
             when(con.toDto(any(User.class))).thenReturn(expectedDto);
 
             mvc.perform(get(BASE_URL))
-                    .andDo(print())
                     .andExpect(status().isOk());
         }
 
