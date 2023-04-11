@@ -277,6 +277,41 @@ class UserControllerTest {
             String expected = convertUserDtoToString(expectedDto);
             assertEquals(expected, actual);
         }
+
+        @Test
+        void response_includes_location_header_with_new_resource_URI() throws Exception {
+            User user = User
+                    .builder()
+                    .firstName("a")
+                    .lastName("b")
+                    .email("c")
+                    .phone("d")
+                    .build();
+
+            UserDto expectedDto = UserDto
+                    .builder()
+                    .uuid(UUID.randomUUID())
+                    .firstName("a")
+                    .lastName("b")
+                    .email("c")
+                    .phone("d")
+                    .build();
+
+            when(con.toUser(any(UserCreateDto.class))).thenReturn(user);
+            when(svc.saveOne(user)).thenReturn(user);
+            when(con.toDto(user)).thenReturn(expectedDto);
+
+            String requestBody = mapper.writeValueAsString(user);
+            MvcResult result = mvc
+                    .perform(post(BASE_URL)
+                            .content(requestBody)
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andReturn();
+
+            String expected = "http://localhost"+BASE_URL+"/"+expectedDto.getUuid();
+            String actual = (String) result.getResponse().getHeaderValue("Location");
+            assertEquals(expected, actual);
+        }
     }
 
     @Nested
